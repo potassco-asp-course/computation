@@ -1,0 +1,85 @@
+% ------------------------------------------------------------
+\section{Consequence operator}
+% ------------------------------------------------------------
+\begin{frame}{Consequence operator}
+
+  \begin{itemize}
+  \item Let $P$ be a positive program and $X$ a set of atoms
+
+    \begin{itemize}
+    \item<1->
+      The \alert{consequence operator} $\To{P}$ is defined as follows:
+      \[
+      \T{P}{X} = \{  \head{r}\mid r\in P\text{ and }\body{r}\subseteq X  \}
+      \]
+    \item<2->
+      Iterated applications of $\Top{P}$ are written as $\Topi{j}{P}$ for
+      $j\geq 0$,
+
+      where
+      \begin{itemize}
+      \item \small
+        \(
+        \Ti{0}{P}{X}=X
+        \)
+        and
+        \smallskip
+      \item \small
+        \(
+        \Ti{i}{P}{X}=\T{P}{\Ti{i-1}{P}{X}}
+        \)
+        for $i\geq 1$
+      \end{itemize}
+    \end{itemize}
+    \medskip
+  \item<3-> For any positive program $P$, we have
+    \begin{itemize}\itemsep .5ex
+    \item $\Cn{P}=\bigcup_{i\geq 0}\Ti{i}{P}{\emptyset}$
+    \item $X\subseteq Y$ implies $\T{P}{X}\subseteq\T{P}{Y}$
+    \item \Cn{P} is the smallest fixpoint of \Top{P}
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+%------------------------------------------------------------
+\begin{frame}{An example}
+  \begin{itemize}
+  \item Consider the program
+    \[
+    P
+    =
+    \left\{
+      p \leftarrow ,           \
+      q \leftarrow ,           \
+      r \leftarrow p,          \
+      s \leftarrow q, t,       \
+      t \leftarrow r,          \
+      u \leftarrow v
+    \right\}
+    \]
+  \item<2-> We get
+    \[
+    \begin{array}{lclclcl}
+      \Ti{0}{P}{\emptyset}&=&\emptyset    &&&&\\
+      \Ti{1}{P}{\emptyset}&=&\{p,q\}      &=&\T{P}{\Ti{0}{P}{\emptyset}}&=&\T{P}{\emptyset}\\
+      \Ti{2}{P}{\emptyset}&=&\{p,q,r\}    &=&\T{P}{\Ti{1}{P}{\emptyset}}&=&\T{P}{\{p,q\}}\\
+      \Ti{3}{P}{\emptyset}&=&\{p,q,r,t\}  &=&\T{P}{\Ti{2}{P}{\emptyset}}&=&\T{P}{\{p,q,r\}}\\
+      \Ti{4}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{3}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t\}}\\
+      \Ti{5}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{4}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t,s\}}\\
+      \Ti{6}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{5}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t,s\}}
+    \end{array}
+    \]
+  \item<3-> $\Cn{P}=\{p,q,r,t,s\}$ is the smallest fixpoint of \Top{P}
+    because
+    \begin{itemize}
+    \item $\T{P}{\{p,q,r,t,s\}}=\{p,q,r,t,s\}$ and
+    \item $\T{P}{X}\neq X$ for each $X\subset  \{p,q,r,t,s\}$
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../,,/main"
+%%% End:
