@@ -1,6 +1,4 @@
-%------------------------------------------------------------
-\section{Computation from first principles}
-%------------------------------------------------------------
+% ----------------------------------------------------------------------
 \begin{frame}{Approximating stable models}
   \medskip
   \begin{itemize}
@@ -9,7 +7,7 @@
     \(
     L\subseteq X\subseteq U
     \)
-    \begin{itemize}
+    \begin{itemize}\normalsize
     \item  $L$ and $U$ constitute lower and upper bounds on $X$
     \item  $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
     \end{itemize}
@@ -24,7 +22,7 @@
     \]
   \item<3-> \structure{Properties} \
     Let $X$ be a stable model of normal logic program $P$
-    \begin{itemize}\itemsep .5ex
+    \begin{itemize}\normalsize
     \item<4-> If $L\subseteq X$,\pause[5]\
       then $X\subseteq\Cn{P^L}$
     \item<6-> If $X\subseteq U$,\pause[7]\
@@ -50,7 +48,7 @@
     \end{quote}
 
   \item<2-> \structure{Observations} \
-    \begin{itemize}\itemsep .5ex
+    \begin{itemize}\normalsize
     \item At each iteration step
       \begin{itemize}
       \item $L$ becomes larger (or equal)
@@ -61,6 +59,22 @@
     \item<3-> If $L\not\subseteq U$, then $P$ has no stable model
     \item<4-> If $L=U$, then $L$ is a stable model of $P$
     \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}{Approximating stable models}
+  \medskip
+  \begin{itemize}
+  \item \structure{First Idea} \ Approximate a stable model $X$ by two sets of atoms\\
+    $L$ and $U$ such that
+    \(
+    L\subseteq X\subseteq U
+    \)
+    \begin{itemize}\normalsize
+    \item  $L$ and $U$ constitute lower and upper bounds on $X$
+    \item  $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
+    \end{itemize}
+    \smallskip
+  \item \structure{Notes}
   \end{itemize}
 \end{frame}
 %------------------------------------------------------------
@@ -93,7 +107,7 @@ P
 =
 \left\{
   \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\naf{c}\\ d\leftarrow b,\naf{e}\\ e\leftarrow~\naf{d}
+    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
   \end{array}
 \right\}
 \)
@@ -133,7 +147,7 @@ P
 =
 \left\{
   \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\naf{c}\\ d\leftarrow b,\naf{e}\\ e\leftarrow~\naf{d}
+    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
   \end{array}
 \right\}
 \]
@@ -152,7 +166,7 @@ P
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------
-\begin{frame}{Let's expand with \naf{d}~!}
+\begin{frame}{Let's expand with $\neg d$~!}
 \begin{itemize}
 \item<1-> []
 \[
@@ -160,7 +174,7 @@ P
 =
 \left\{
   \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\naf{c}\\ d\leftarrow b,\naf{e}\\ e\leftarrow~\naf{d}
+    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
   \end{array}
 \right\}
 \]
@@ -185,7 +199,7 @@ P
 \begin{quote}
 $\mathit{solve}_P(L,U)$
 \medskip
-\begin{itemize}\itemsep .5ex
+\begin{itemize}\normalsize
 \item [] $(L,U)\leftarrow\mathit{expand}_P(L,U)$\hfill\makebox[50mm][l]{\textit{// propagation}}
 \item [] \textbf{if} $L\not\subseteq U$ \textbf{then} \textbf{failure}\hfill\makebox[50mm][l]{\textit{// failure}}
 \item [] \textbf{if} $L=U$              \textbf{then} \textbf{output}~$L$\hfill\makebox[50mm][l]{\textit{// success}}
@@ -216,9 +230,9 @@ $\mathit{solve}_P(L,U)$
   \end{itemize}
 \end{itemize}
 \end{frame}
-%------------------------------------------------------------
+% ----------------------------------------------------------------------
+%
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-PDF-mode: t
-%%% TeX-master: "../asp"
+%%% TeX-master: "../../main"
 %%% End:
