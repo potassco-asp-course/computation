@@ -1,10 +1,10 @@
 % ----------------------------------------------------------------------
 \begin{frame}{Consequence operator}
-
+  \medskip
   \begin{itemize}
   \item Let $P$ be a positive program and $X$ a set of atoms
 
-    \begin{itemize}
+    \begin{itemize}\normalsize
     \item<1->
       The \alert{consequence operator} \Top{P} is defined as follows:
       \[
@@ -12,17 +12,14 @@
       \]
     \item<2->
       Iterated applications of $\Top{P}$ are written as $\Topi{j}{P}$ for
-      $j\geq 0$,
-
-      where
-      \begin{itemize}
-      \item \small
+      $j\geq 0$
+      \begin{itemize}\normalsize
+      \item
         \(
         \Ti{0}{P}{X}=X
         \)
-        and
         \smallskip
-      \item \small
+      \item
         \(
         \Ti{i}{P}{X}=\T{P}{\Ti{i-1}{P}{X}}
         \)
@@ -30,8 +27,8 @@
       \end{itemize}
     \end{itemize}
     \medskip
-  \item<3-> For any positive program $P$, we have
-    \begin{itemize}\itemsep .5ex
+  \item<3-> \structure{Properties} \ For any positive program $P$
+    \begin{itemize}\normalsize
     \item $\Cn{P}=\bigcup_{i\geq 0}\Ti{i}{P}{\emptyset}$
     \item $X\subseteq Y$ implies $\T{P}{X}\subseteq\T{P}{Y}$
     \item \Cn{P} is the smallest fixpoint of \Top{P}
@@ -42,7 +39,7 @@
 % ----------------------------------------------------------------------
 \begin{frame}{An example}
   \begin{itemize}
-  \item Consider the program
+  \item Consider the positive program
     \[
     P
     =
@@ -69,11 +66,12 @@
     \]
   \item<3-> $\Cn{P}=\{p,q,r,t,s\}$ is the smallest fixpoint of \Top{P}
     because
-    \begin{itemize}
+    \begin{itemize}\normalsize
     \item $\T{P}{\{p,q,r,t,s\}}=\{p,q,r,t,s\}$ and
     \item $\T{P}{X}\neq X$ for each $X\subset  \{p,q,r,t,s\}$
     \end{itemize}
   \end{itemize}
+  \smallskip
 \end{frame}
 % ----------------------------------------------------------------------
 %
