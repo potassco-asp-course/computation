@@ -8,8 +8,8 @@
     L\subseteq X\subseteq U
     \)
     \begin{itemize}\normalsize
-    \item  $L$ and $U$ constitute lower and upper bounds on $X$
-    \item  $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
+    \item $L$ and $U$ constitute lower and upper bounds on $X$
+    \item $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
     \end{itemize}
     \smallskip
   \item<2-> \structure{Observation}
@@ -32,26 +32,23 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-% ------------------------------------------------------------
+% ----------------------------------------------------------------------
 \begin{frame}{Approximating stable models}
   \begin{itemize}
   \item \structure{Second Idea} \
-    \medskip
-
-    \begin{quote}
-    \textbf{repeat}
-    \begin{itemize}
-    \item[] \textbf{replace} $L$ \textbf{by} $L\cup\Cn{P^U}$
-    \item[] \textbf{replace} $U$ \textbf{by} $U\cap\Cn{P^L}$
+    \smallskip
+  \item []\textbf{repeat}
+    \begin{itemize}\normalsize
+    \item[] \textbf{replace} $L$\, \textbf{by}\, $L\cup\Cn{P^U}$
+    \item[] \textbf{replace} $U$   \textbf{by}   $U\cap\Cn{P^L}$
     \end{itemize}
-    \textbf{until} $L$ and $U$ do not change anymore
-    \end{quote}
-
+  \item [] \textbf{until} $L$ and $U$ do not change anymore
+    \smallskip
   \item<2-> \structure{Observations} \
     \begin{itemize}\normalsize
     \item At each iteration step
-      \begin{itemize}
-      \item $L$ becomes larger (or equal)
+      \begin{itemize}\normalsize
+      \item $L$ becomes larger  (or equal)
       \item $U$ becomes smaller (or equal)
       \end{itemize}
     \item $L\subseteq X\subseteq U$ is invariant for every stable model $X$ of $P$
@@ -61,23 +58,7 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}{Approximating stable models}
-  \medskip
-  \begin{itemize}
-  \item \structure{First Idea} \ Approximate a stable model $X$ by two sets of atoms\\
-    $L$ and $U$ such that
-    \(
-    L\subseteq X\subseteq U
-    \)
-    \begin{itemize}\normalsize
-    \item  $L$ and $U$ constitute lower and upper bounds on $X$
-    \item  $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
-    \end{itemize}
-    \smallskip
-  \item \structure{Notes}
-  \end{itemize}
-\end{frame}
-%------------------------------------------------------------
+% ----------------------------------------------------------------------
 \begin{frame}{The simplistic expand algorithm}
   \bigskip
   \begin{itemize}
@@ -88,8 +69,8 @@
       \item [] $L'\leftarrow L$
       \item [] $U'\leftarrow U$
         \smallskip
-      \item [] $L\leftarrow L'\cup\Cn{P^{U'}}$
-      \item [] $U\leftarrow U'\cap\Cn{P^{L'}}$
+      \item [] $L\,\leftarrow\,L'\cup\Cn{P^{U'}}$
+      \item [] $U  \leftarrow  U'\cap\Cn{P^{L'}}$
         \smallskip
       \item [] \textbf{if} $L\not\subseteq U$ \textbf{then} \textbf{return}
         \smallskip
@@ -98,41 +79,43 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-%------------------------------------------------------------
+% ----------------------------------------------------------------------
 \begin{frame}{An example}
-\begin{itemize}
-\item<1-> []
-\(
-P
-=
-\left\{
-  \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
-  \end{array}
-\right\}
-\)
-\item<2-> []
-\[
-\begin{array}{cllllll}
-  & L'        & \Cn{P^{U'}} & L       & U'            & \Cn{P^{L'}} & U          \\
-\hline
-1 & \emptyset & \{a\}         & \{a\}   &\{a,b,c,d,e\}  & \{a,b,d,e\}   & \{a,b,d,e\}\\
-2 & \{a\}     & \{a,b\}       & \{a,b\} &\{a,b,d,e\}    & \{a,b,d,e\}   & \{a,b,d,e\}\\
-3 & \{a,b\}   & \{a,b\}       & \{a,b\} & \{a,b,d,e\}   & \{a,b,d,e\}   & \{a,b,d,e\}\\
-\end{array}
-\]
-\medskip
-\item<3-> \structure{Note} We have $\{a,b\}\subseteq X$ and
-  $(\mathcal{A}\setminus\{a,b,d,e\})\cap X= (\{c\}\cap X)=\emptyset$
-  for every stable model $X$ of $P$
-\end{itemize}
+  \begin{itemize}
+  \item<1-> []
+    \(
+    P
+    =
+    \left\{
+      \begin{array}{l}
+        a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
+      \end{array}
+    \right\}
+    \)
+    \smallskip
+  \item<2-> []
+    \[
+      \begin{array}{cllllll}
+         & L'                & \Cn{P^{U'}}      & L                & U'                     & \Cn{P^{L'}}          & U                    \\
+        \hline
+        1&          \emptyset&\only<3->{\{a  \}}&\only<4->{\{a  \}}&          \{a,b,c,d,e\} &\only<3->{\{a,b,d,e\}}&\only<4->{\{a,b,d,e\}}\\\pause[5]
+        2&          \{a  \}  &\only<6->{\{a,b\}}&\only<7->{\{a,b\}}&          \{a,b,  d,e\} &\only<6->{\{a,b,d,e\}}&\only<7->{\{a,b,d,e\}}\\\pause[8]
+        3&          \{a,b\}  &          \{a,b\} &          \{a,b\} &          \{a,b,  d,e\} &          \{a,b,d,e\} &          \{a,b,d,e\}
+      \end{array}
+    \]
+    \medskip
+  \item<9-> \structure{Note} \ $\{a,b\}\subseteq X$ \ and \
+    $(\mathcal{A}\setminus\{a,b,d,e\})\cap X= (\{c\}\cap X)=\emptyset$
+    \\
+    for every stable model $X$ of $P$
+  \end{itemize}
 \end{frame}
 %------------------------------------------------------------
 \begin{frame}{The simplistic expand algorithm}
   \bigskip
   \begin{itemize}
   \item $\mathbf{expand}_{P}$
-  \begin{itemize}
+  \begin{itemize}\normalsize
   \item tightens the approximation on stable models
   \item is stable model preserving
   \end{itemize}
@@ -140,93 +123,92 @@ P
 \end{frame}
 %------------------------------------------------------------
 \begin{frame}{Let's expand with $d$~!}
-\begin{itemize}
-\item<1-> []
-\[
-P
-=
-\left\{
-  \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
-  \end{array}
-\right\}
-\]
-\item<2-> []
-\[
-\begin{array}{cllllll}
-  & L'        & \Cn{P^{U'}} & L         & U'            & \Cn{P^{L'}} & U        \\
-\hline
-1 & \{d\}     & \{a\}         & \{a,d\}   & \{a,b,c,d,e\} & \{a,b,d\}     & \{a,b,d\}\\
-2 & \{a,d\}   & \{a,b,d\}     & \{a,b,d\} & \{a,b,d\}     & \{a,b,d\}     & \{a,b,d\}\\
-3 & \{a,b,d\} & \{a,b,d\}     & \{a,b,d\} & \{a,b,d\}     & \{a,b,d\}     & \{a,b,d\}\\
-\end{array}
-\]
-\medskip
-\item<3-> \structure{Note} $\{a,b,d\}$ is a stable model of $P$
-\end{itemize}
+  \begin{itemize}
+  \item<1-> []
+    \(
+      P
+      =
+      \left\{
+        \begin{array}{l}
+          a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
+        \end{array}
+      \right\}
+    \)
+  \item<2-> []
+    \[
+      \begin{array}{cllllll}
+        & L'          & \Cn{P^{U'}} & L         & U'            & \Cn{P^{L'}} & U        \\
+        \hline
+        1 & \{d\}     & \{a\}       & \{a,d\}   & \{a,b,c,d,e\} & \{a,b,d\}   & \{a,b,d\}\\\pause[3]
+        2 & \{a,d\}   & \{a,b,d\}   & \{a,b,d\} & \{a,b,d\}     & \{a,b,d\}   & \{a,b,d\}\\\pause[4]
+        3 & \{a,b,d\} & \{a,b,d\}   & \{a,b,d\} & \{a,b,d\}     & \{a,b,d\}   & \{a,b,d\}
+      \end{array}
+    \]
+    \medskip
+  \item<5-> \structure{Note} \ $\{a,b,d\}$ is a stable model of $P$
+  \end{itemize}
 \end{frame}
-%------------------------------------------------------------
+% ------------------------------------------------------------
 \begin{frame}{Let's expand with $\neg d$~!}
-\begin{itemize}
-\item<1-> []
-\[
-P
-=
-\left\{
-  \begin{array}{l}
-    a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
-  \end{array}
-\right\}
-\]
-\item<2-> []
-\[
-\begin{array}{cllllll}
-  & L'        & \Cn{P^{U'}} & L         & U'           & \Cn{P^{L'}} & U        \\
-\hline
-1 & \emptyset & \{a,e\}       & \{a,e\}   & \{a,b,c,e\}  & \{a,b,d,e\} & \{a,b,e\}\\
-2 & \{a,e\}   & \{a,b,e\}     & \{a,b,e\} & \{a,b,e\}    & \{a,b,e\}   & \{a,b,e\}\\
-3 & \{a,b,e\} & \{a,b,e\}     & \{a,b,e\} & \{a,b,e\}    & \{a,b,e\} & \{a,b,e\}\\
-\end{array}
-\]
-\medskip
-\medskip
-\item<3-> \structure{Note} $\{a,b,e\}$ is a stable model of $P$
-\end{itemize}
+  \begin{itemize}
+  \item<1-> []
+    \(
+      P
+      =
+      \left\{
+        \begin{array}{l}
+          a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
+        \end{array}
+      \right\}
+    \)
+  \item<2-> []
+    \[
+      \begin{array}{cllllll}
+        & L'          & \Cn{P^{U'}} & L         & U'           & \Cn{P^{L'}} & U        \\
+        \hline
+        1 & \emptyset & \{a,e\}     & \{a,e\}   & \{a,b,c,e\}  & \{a,b,d,e\} & \{a,b,e\}\\\pause[3]
+        2 & \{a,e\}   & \{a,b,e\}   & \{a,b,e\} & \{a,b,e\}    & \{a,b,e\}   & \{a,b,e\}\\\pause[4]
+        3 & \{a,b,e\} & \{a,b,e\}   & \{a,b,e\} & \{a,b,e\}    & \{a,b,e\}   & \{a,b,e\}
+      \end{array}
+    \]
+    \medskip
+  \item<5-> \structure{Note} \ $\{a,b,e\}$ is a stable model of $P$
+  \end{itemize}
 \end{frame}
-%------------------------------------------------------------
+% ------------------------------------------------------------
 \begin{frame}{A simplistic solving algorithm}
-\bigskip
-\begin{quote}
-$\mathit{solve}_P(L,U)$
-\medskip
-\begin{itemize}\normalsize
-\item [] $(L,U)\leftarrow\mathit{expand}_P(L,U)$\hfill\makebox[50mm][l]{\textit{// propagation}}
-\item [] \textbf{if} $L\not\subseteq U$ \textbf{then} \textbf{failure}\hfill\makebox[50mm][l]{\textit{// failure}}
-\item [] \textbf{if} $L=U$              \textbf{then} \textbf{output}~$L$\hfill\makebox[50mm][l]{\textit{// success}}
-\item [] \textbf{else} \textbf{choose} $a\in U\setminus L$\hfill\makebox[50mm][l]{\textit{// choice}}
-\item [] \qquad\ $\mathit{solve}_P(L\cup\{a\},U              )$
-\item [] \qquad\ $\mathit{solve}_P(L,         U\setminus\{a\})$
-\end{itemize}
-\end{quote}
+  \bigskip
+  \begin{itemize}
+  \item [] $\mathit{solve}_P(L,U)$
+    \smallskip
+    \begin{itemize}\normalsize
+    \item [] $(L,U)\leftarrow\mathit{expand}_P(L,U)$                         \hfill\makebox[50mm][l]{\textit{// propagation}}
+    \item [] \textbf{if} $L\not\subseteq U$ \textbf{then} \textbf{failure}   \hfill\makebox[50mm][l]{\textit{// failure}}
+    \item [] \textbf{if} $L =            U$ \textbf{then} \textbf{output}~$L$\hfill\makebox[50mm][l]{\textit{// success}}
+    \item [] \textbf{else} \textbf{choose} $a\in U\setminus L$               \hfill\makebox[50mm][l]{\textit{// choice}}
+    \item [] \qquad\ $\mathit{solve}_P(L\cup\{a\},U              )$
+    \item [] \qquad\ $\mathit{solve}_P(L,         U\setminus\{a\})$
+    \end{itemize}
+  \end{itemize}
 \end{frame}
-%------------------------------------------------------------
+% ------------------------------------------------------------
 \begin{frame}{A simplistic solving algorithm}
 \bigskip
 \begin{itemize}
   \item Close to the approach taken by the ASP solver \texttt{smodels},
     inspired by the Davis-Putman-Logemann-Loveland (DPLL) procedure
     \smallskip
-  \begin{itemize}
-  \item<2-> Backtracking search building a binary search tree
-  \item<2-> A node in the search tree corresponds to a three-valued interpretation
+  \begin{itemize}\normalsize
+  \item<2-> backtracking search building a binary search tree
+  \item<2-> a node in the search tree corresponds to a three-valued interpretation
     \smallskip
-  \item<3-> The search space is pruned by
-    \begin{itemize}
+  \item<3-> the search space is pruned by
+    \begin{itemize}\normalsize
     \item deriving deterministic consequences and detecting conflicts (\textbf{expand})
     \item making one choice at a time by appeal to a heuristic (\textbf{choose})
     \end{itemize}
     \smallskip
-  \item<4-> Heuristic choices are made on atoms
+  \item<4-> heuristic choices are made on atoms
   \end{itemize}
 \end{itemize}
 \end{frame}
