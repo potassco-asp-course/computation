@@ -1,3 +1,4 @@
+% ----------------------------------------------------------------------
 \begin{frame}{Approximating stable models}
   \medskip
   \begin{itemize}
@@ -6,14 +7,23 @@
     \(
     L\subseteq X\subseteq U
     \)
-    \begin{itemize}\normalsize
-    \item  $L$ and $U$ constitute lower and upper bounds on $X$
-    \item  $L$ and $(\mathcal{A}\setminus U)$ describe a three-valued model of the program
-    \end{itemize}
     \smallskip
-  \item \structure{Notes}
+  \item \structure{Recall} \ $X$ is a stable model of $P$ iff $X=\Cn{P^X}$
+    \smallskip
+  \item \structure{Example}
+    \par\bigskip
+    \(
+    P
+    =
+    \left\{
+      \begin{array}{l}
+        a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
+      \end{array}
+    \right\}
+    \)
   \end{itemize}
 \end{frame}
+% ----------------------------------------------------------------------
 %
 %%% Local Variables:
 %%% mode: latex
