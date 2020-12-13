@@ -9,10 +9,24 @@
     \)
     \smallskip
   \item \structure{Recall} \ $X$ is a stable model of $P$ iff $X=\Cn{P^X}$
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}{Approximating stable models}
+  \medskip
+  \begin{itemize}
+  \item \structure{First Idea} \ Approximate a stable model $X$ by two sets of atoms\\
+    $L$ and $U$ such that
+    \(
+    L\subseteq X\subseteq U
+    \)
+    \smallskip
+  \item \structure{Recall} \ $X$ is a stable model of $P$ iff $X=\Cn{P^X}$
     \smallskip
   \item \structure{Example}
     \par\bigskip
     \(
+    \qquad
     P
     =
     \left\{
@@ -20,6 +34,18 @@
         a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
       \end{array}
     \right\}
+    \)
+    \hfill
+    \(
+    \left\{
+      \begin{array}{l}
+        a\leftarrow\\  b\leftarrow a,\neg c\\ d\leftarrow b,\neg e\\ e\leftarrow~\neg d
+      \end{array}
+    \right\}
+    =
+    P
+    \qquad
+    \qquad
     \)
   \end{itemize}
 \end{frame}
