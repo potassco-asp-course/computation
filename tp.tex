@@ -1,40 +1,48 @@
 % ----------------------------------------------------------------------
 \begin{frame}{Consequence operator}
   \medskip
-  \begin{itemize}
-  \item Let $P$ be a positive program and $X$ a set of atoms
-
+  Let $P$ be a positive program and $X$ a set of atoms
+  \begin{itemize}\normalsize
+  \item<1->
+    The \alert{consequence operator} \Top{P} is defined as follows:
+    \[
+      \T{P}{X} = \{  \head{r}\mid r\in P, \pbody{r}\subseteq X  \}
+    \]
+  \item<only@2> \structure{Procedural characterization}
+    \smallskip
+  \item<only@2> [] \textbf{let} $\T{P}{X}=\{\head{r}\mid r\in P, \pbody{r}\subseteq X\}$ \textbf{in} \
     \begin{itemize}\normalsize
-    \item<1->
-      The \alert{consequence operator} \Top{P} is defined as follows:
-      \[
-      \T{P}{X} = \{  \head{r}\mid r\in P\text{ and }\body{r}\subseteq X  \}
-      \]
-    \item<2->
-      Iterated applications of $\Top{P}$ are written as $\Topi{j}{P}$ for
-      $j\geq 0$
+    \item []$X := \emptyset$
+      \smallskip
+    \item []\textbf{while} $\T{P}{X}\neq X$
       \begin{itemize}\normalsize
-      \item
-        \(
-        \Ti{0}{P}{X}=X
-        \)
-        \smallskip
-      \item
-        \(
-        \Ti{i}{P}{X}=\T{P}{\Ti{i-1}{P}{X}}
-        \)
-        for $i\geq 1$
+      \item[] $X := \,\T{P}{X}$
       \end{itemize}
+    \item[] \textbf{return} $X$
+    \end{itemize}
+  \item<only@3->
+    Iterated applications of $\Top{P}$ are written as $\Topi{j}{P}$ for
+    $j\geq 0$
+    \begin{itemize}\normalsize
+    \item
+      \(
+      \Ti{0}{P}{X}=X
+      \)
+      \smallskip
+    \item
+      \(
+      \Ti{i}{P}{X}=\T{P}{\Ti{i-1}{P}{X}}
+      \)
+      for $i\geq 1$
     \end{itemize}
     \medskip
-  \item<3-> \structure{Properties} \ For any positive program $P$
-    \begin{itemize}\normalsize
-    \item $\Cn{P}=\bigcup_{i\geq 0}\Ti{i}{P}{\emptyset}$
-    \item $X\subseteq Y$ implies $\T{P}{X}\subseteq\T{P}{Y}$
-    \item \Cn{P} is the smallest fixpoint of \Top{P}
-    \end{itemize}
+\item<only@4-> \structure{Properties} \ For any positive program $P$
+  \begin{itemize}\normalsize
+  \item $\Cn{P}=\bigcup_{i\geq 0}\Ti{i}{P}{\emptyset}$
+  \item $X\subseteq Y$ implies $\T{P}{X}\subseteq\T{P}{Y}$
+  \item \Cn{P} is the smallest fixpoint of \Top{P}
   \end{itemize}
-
+\end{itemize}
 \end{frame}
 % ----------------------------------------------------------------------
 \begin{frame}{An example}
