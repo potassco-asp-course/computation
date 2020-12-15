@@ -47,8 +47,8 @@
 % ----------------------------------------------------------------------
 \begin{frame}{An example}
   \begin{itemize}
-  \item Consider the positive program
-    \[
+  \item
+    \(
     P
     =
     \left\{
@@ -59,15 +59,15 @@
       t \leftarrow r,          \
       u \leftarrow v
     \right\}
-    \]
+    \)
   \item<2-> We get
     \[
     \begin{array}{lclclcl}
-      \Ti{0}{P}{\emptyset}&=&\emptyset    &&&&\\
-      \Ti{1}{P}{\emptyset}&=&\{p,q\}      &=&\T{P}{\Ti{0}{P}{\emptyset}}&=&\T{P}{\emptyset}\\
-      \Ti{2}{P}{\emptyset}&=&\{p,q,r\}    &=&\T{P}{\Ti{1}{P}{\emptyset}}&=&\T{P}{\{p,q\}}\\
-      \Ti{3}{P}{\emptyset}&=&\{p,q,r,t\}  &=&\T{P}{\Ti{2}{P}{\emptyset}}&=&\T{P}{\{p,q,r\}}\\
-      \Ti{4}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{3}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t\}}\\
+      \Ti{0}{P}{\emptyset}&=&\emptyset    & &                           & &                    \\
+      \Ti{1}{P}{\emptyset}&=&\{p,q\}      &=&\T{P}{\Ti{0}{P}{\emptyset}}&=&\T{P}{\emptyset}    \\
+      \Ti{2}{P}{\emptyset}&=&\{p,q,r\}    &=&\T{P}{\Ti{1}{P}{\emptyset}}&=&\T{P}{\{p,q\}}      \\
+      \Ti{3}{P}{\emptyset}&=&\{p,q,r,t\}  &=&\T{P}{\Ti{2}{P}{\emptyset}}&=&\T{P}{\{p,q,r\}}    \\
+      \Ti{4}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{3}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t\}}  \\
       \Ti{5}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{4}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t,s\}}\\
       \Ti{6}{P}{\emptyset}&=&\{p,q,r,t,s\}&=&\T{P}{\Ti{5}{P}{\emptyset}}&=&\T{P}{\{p,q,r,t,s\}}
     \end{array}
