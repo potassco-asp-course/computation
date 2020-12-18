@@ -12,28 +12,35 @@
     \end{itemize}
     \smallskip
   \item<2-> \structure{Recall} \ $X$ is a stable model of $P$ iff $X=\Cn{P^X}$
-    \smallskip
+    \medskip
   \item<3-> \structure{Observation}
-    \[
+    \medskip
+    \begin{itemize}
+    \item
+    \(
     X\subseteq Y
     \text{ implies }
     \reduct{P}{Y}\subseteq \reduct{P}{X}
+    \uncover<4->{%
     \text{ implies }
-    \Cn{\reduct{P}{Y}}\subseteq\Cn{\reduct{P}{X}}
-    \]
-  \item<4-> \structure{Properties} \
+    \Cn{\reduct{P}{Y}}\subseteq\Cn{\reduct{P}{X}}}
+    \)
+    \end{itemize}
+    \smallskip
+  \item<5-> \structure{Properties} \
     Let $X$ be a stable model of normal logic program $P$
     \smallskip
     \begin{itemize}\normalsize
-    \item<5-> If $L\subseteq X$,\pause[5]\
-      then $X\subseteq\Cn{\reduct{P}{L}}$
-    \smallskip
-    \item<7-> If $X\subseteq U$,\pause[7]\
-      then $\Cn{\reduct{P}{U}}\subseteq X$
-    \smallskip
-    \item<9-> If $L\subseteq X\subseteq U$,\pause[9]\
-      then $L\cup\Cn{\reduct{P}{U}}\subseteq X\pause[10]\subseteq U\cap\Cn{\reduct{P}{L}}$
-    \end{itemize}
+    \item<6-> If $L\subseteq X$,
+      \uncover<7->{then $\alt<-7>{\Cn{P^X}}{X}\subseteq\Cn{\reduct{P}{L}}$}
+      \smallskip
+    \item<9-> If $X\subseteq U$,
+      \uncover<10->{then $\Cn{\reduct{P}{U}}\subseteq\alt<-10>{\Cn{P^X}}{X}$}
+        \smallskip
+      \item<12-> If $L\subseteq X\subseteq U$,
+        \uncover<13->{\ then $L\cup\Cn{\reduct{P}{U}}\subseteq X$}
+        \uncover<14->{$\subseteq U\cap\Cn{\reduct{P}{L}}$}
+        \end{itemize}
   \end{itemize}
 \end{frame}
 % ----------------------------------------------------------------------
@@ -47,7 +54,7 @@
     \item[] \textbf{replace} $U$   \textbf{by}   $U\cap\Cn{\reduct{P}{L}}$
     \end{itemize}
   \item [] \textbf{until} $L$ and $U$ do not change anymore
-    \smallskip
+    \medskip
   \item<2-> \structure{Observations} \
     \begin{itemize}\normalsize
     \item At each iteration step
