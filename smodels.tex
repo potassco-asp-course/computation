@@ -165,9 +165,9 @@
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------
-\begin{frame}{\alt<2->{Let's expand with $d$}{Making choices}}
+\begin{frame}{\alt<3->{Let's expand with $d$}{Making choices}}
   \begin{itemize}
-  \item<1-> []
+  \item<1->[]
     \(
       P
       =
@@ -177,24 +177,29 @@
         \end{array}
       \right\}
     \)
-  \item<2-> []
+  \item<2->[]\small
     \[
       \begin{array}{cllllll}
-        & L'          & \Cn{\reduct{P}{U'}}   & L                     & U'                 & \Cn{\reduct{P}{L'}}   & U                     \\
+         & L'       & \Cn{\reduct{P}{U'}}   & L                     & U'            & \Cn{\reduct{P}{L'}}     & U                       \\
         \hline
-        1 & \{d\}     &\uncover<3->{\{a    \}}&\uncover<4->{\{a,  d\}}& \{a,b,c,d,e\}      &\uncover<3->{\{a,b,d\}}&\uncover<4->{\{a,b,d\}}\\\pause[5]
-        2 & \{a,d\}   &             \{a,b,d\} &             \{a,b,d\} & \{a,b,d\}          &             \{a,b,d\} &             \{a,b,d\} \\\pause[6]
-        3 & \{a,b,d\} &             \{a,b,d\} &             \{a,b,d\} & \{a,b,d\}          &             \{a,b,d\} &             \{a,b,d\}
+        1& \emptyset&{\{a  \}}              &            {\{a    \}}& \{a,b,c,d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        2& \{a  \}  &{\{a,b\}}              &            {\{a,b  \}}& \{a,b,  d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        3& \{a,b\}  &{\{a,b\}}              &            {\{a,b  \}}& \{a,b,  d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        \hline\pause[3]
+         &          &                       &            {\{a,b,d\}}&               &                         &            {\{a,b,d,e\}}\\
+        \hline\pause[4]
+        1& \{a,b,d\}&\uncover<5->{\{a,b  \}}&\uncover<6->{\{a,b,d\}}& \{a,b,d,e\}   &\uncover<5->{\{a,b,d  \}}&\uncover<6->{\{a,b,d  \}}\\\pause[7]
+        2& \{a,b,d\}&             \{a,b,d\} &             \{a,b,d\} & \{a,b,d\}     &             \{a,b,d  \} &             \{a,b,d  \}
       \end{array}
     \]
     \medskip
-  \item<7-> \structure{Result} \ $\{a,b,d\}$ is a stable model of $P$
+  \item<8-> \structure{Result} \ $\{a,b,d\}$ is a stable model of $P$
   \end{itemize}
 \end{frame}
 % ------------------------------------------------------------
 \begin{frame}{\alt<2->{Let's expand with $\neg d$}{And now the complement}}
   \begin{itemize}
-  \item<1-> []
+  \item<1->[]
     \(
       P
       =
@@ -204,14 +209,19 @@
         \end{array}
       \right\}
     \)
-  \item<2-> []
+  \item<2->[]\small
     \[
       \begin{array}{cllllll}
-        & L'          & \Cn{\reduct{P}{U'}}   & L                     & U'           & \Cn{\reduct{P}{L'}}     & U                     \\
+         & L'       & \Cn{\reduct{P}{U'}}   & L                     & U'            & \Cn{\reduct{P}{L'}}     & U                       \\
         \hline
-        1 & \emptyset &\uncover<3->{\{a,  e\}}&\uncover<4->{\{a,  e\}}& \{a,b,c,e\}  &\uncover<3->{\{a,b,d,e\}}&\uncover<4->{\{a,b,e\}}\\\pause[5]
-        2 & \{a,e\}   &             \{a,b,e\} &             \{a,b,e\} & \{a,b,e\}    &             \{a,b,  e\} &             \{a,b,e\} \\\pause[6]
-        3 & \{a,b,e\} &             \{a,b,e\} &             \{a,b,e\} & \{a,b,e\}    &             \{a,b,  e\} &             \{a,b,e\}
+        1& \emptyset&{\{a  \}}              &            {\{a    \}}& \{a,b,c,d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        2& \{a    \}&{\{a,b\}}              &            {\{a,b  \}}& \{a,b,  d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        3& \{a,b  \}&{\{a,b\}}              &            {\{a,b  \}}& \{a,b,  d,e\} &            {\{a,b,d,e\}}&            {\{a,b,d,e\}}\\
+        \hline\pause[3]
+         &          &                       &            {\{a,b  \}}&               &                         &            {\{a,b,  e\}}\\
+        \hline\pause[4]
+        1& \{a,b  \}&\uncover<5->{\{a,b,e\}}&\uncover<6->{\{a,b,e\}}& \{a,b,    e\} &\uncover<5->{\{a,b,d,e\}}&\uncover<6->{\{a,b,  e\}}\\\pause[7]
+        2& \{a,b,e\}&             \{a,b,e\} &             \{a,b,e\} & \{a,b,    e\} &             \{a,b,  e\} &             \{a,b,  e\}
       \end{array}
     \]
     \medskip
